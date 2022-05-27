@@ -1,0 +1,96 @@
+03 Object-Oriented Programming
+Test your knowledge
+1. What are the six combinations of access modifier keywords and what do they do? 
+1) Public Access Modifier
+Objects that implement public access modifiers are accessible from everywhere in a project without any restrictions.
+2) Private Access Modifier
+Objects that implement private access modifier are accessible only inside a class or a structure. As a result, we can’t access them outside the class they are created.
+3) Protected Access Modifier
+The protected keyword implies that the object is accessible inside the class and in all classes that derive from that class.
+
+4) Internal Access Modifier
+For Internal keyword, the access is limited exclusively to classes defined within the current project assembly.
+5) Protected Internal Access Modifier −
+The protected internal access modifier is a combination of protected and internal. As a result, we can access the protected internal member only in the same assembly or in a derived class in other assemblies.
+6) Private Protected Access Modifier
+The private protected access modifier is a combination of the private and protected keywords. We can access members inside the containing class or in a class that derives from a containing class, but only in the same assembly(project). Therefore, if we try to access it from another assembly, we will get an error. This modifier is valid in C# version 7.2 and later.
+2.What is the difference between the static, const, and read only keywords when applied to
+a type member?
+
+Static: decared using static keyword; classes, constructors, methods, variables, properties, event and operators can be static. The struct, indexers, enum, destructors or finalizers cannot be static; static members can only be accessed within the static methods. The non-static methods cannot access static members; value of the static members can be modified using ClassName.StaticMemberName; static members can be accessed using ClassName.StaticMemberName, but cannot be accessed  using object.\
+Readonly: declared using the readonly keyword; only the class level fields can be readonly. The local variables of methods cannot be readonly;readonly fields can be initialized at declaration or in the constructor; therefore, readonly variables are used for the run-time constants; readonly variable cannot be modified at runtime.It can only be initialized or changed in the constructor; readonly members can be accessed using object but not ClassName.ReadOnlyVariableName.
+Const:Decired using the const keyword. By default a const is static that cannot be changed; only the class level fields or variables can be constant; the constant fields must be initialized at the time of decalaration; therefore const variables are used for compile time constants; constant variables cannot be modified after declaration; const members can be accessed using ClassNmae.ConstVariableName, but cannot be accessed using object.
+
+3. What does a constructor do?
+constructor: 
+1) is a special method which shares the same name of the class and doesn't have any return type
+2) constructor is used to create an object of the class and initialize class members
+3)if there is no constructor in the class, the compiler will provide us a default constructor, and it's parameter-less
+4) if we create any constructor ourselves, the default constructor will be replaced
+5)constructor can be overloaded
+6) constructor cannot be inherited, so a constructor cannot be overriden
+7) by default derived class constructor will make a call to a base class constructor
+
+4. Why is the partial keyword useful?
+A partial class is a special feature of C#. It provides a special ability to implement the functionality of a single class into multiple files and all these files are combined into a single class file when the application is compiled.
+With the help of partial classes, multiple developers can work simultaneously in the same class in different files.
+With the help of a partial class concept, you can split the UI of the design code and the business logic code to read and understand the code.
+When you were working with automatically generated code, the code can be added to the class without having to recreate the source file like in Visual studio.
+You can also maintain your application in an efficient manner by compressing large classes into small ones.
+
+5. What is a tuple?
+A C# tuple is a data structure that provides an easy way to represent a single set of data. The System. Tuple class provides static methods to create tuple objects.
+ Tuples allow us to:
+1)Create, access, and manipulate a data set
+2)Return a data set from a method without using out parameter
+3)Pass multiple values to a method through a single parameter
+6. What does the C# record keyword do?
+Beginning with C# 9, you use the record keyword to define a reference type that provides built-in functionality for encapsulating data. C# 10 allows the record class syntax as a synonym to clarify a reference type, and record struct to define a value type with similar functionality. You can create record types with immutable properties by using positional parameters or standard property syntax.
+7. What does overloading and overriding mean?
+1) method overriding: happens between base class and derived class, same method signature(accesss modifier, method name, same input parameters), derived classes can have different implementations for the same methods. overloading is compile time polymorphism.
+2) method overloading: we have multiple methods in the same class, same method name, but different parameter lists. overriding is rum-time polymorphism.
+
+8. What is the difference between a field and a property?
+1)A field is a variable of any type that is declared directly in a class; A property is a member that provides a flexible mechanism to read, write or compute the value of a private field.
+2) A field can be used to explain the characteristics of an object or a class. A property can be used to set and receive values of a field
+
+9. How do you make a method parameter optional?
+By using default value: You can implement optional parameters by using default value. It is the simplest and easiest way to implement the optional parameter. In this way, you just simply define the optional parameters with their default value in the method definition. And always remember the optional parameter is the last parameter in the parameter list of the method. In default value method, when you do not pass the value of the optional parameters, then the optional parameters use their default value and when you pass the parameters for optional parameters, then they will take the passed value not th By using Method Overloading: You can implement optional parameters concept by using method overloading. In method overloading, we create methods with the same name but with the different parameter list. This method is not the pure way to implement an optional parameter, but you can achieve the optional parameter concept by using this method.eir default value.
+By using OptionalAttribute: You can implement optional parameters by using OptionalAttribute. To implement the optional parameter first you need to add System.Runtime.InteropServices namespace in your program, then creates an optional parameter using the Optional keyword enclosed in square brackets before the definition of the parameter in the method. The default value of OptionalAttribut is zero.
+https://www.geeksforgeeks.org/different-ways-to-make-method-parameter-optional-in-c-sharp/
+
+
+10. What is an interface and how is it different from abstract class?
+ 1) Interface defines the a contract which is implemented by the derived classes.
+As of naming convention an interface name must start with capital letter 'I'
+Interface supports multiple inheritance.
+By default all the members inside are public and abstract.
+Interface can not have constructor and fields.
+Interface can have properties but derived class must override them.
+Helps in writing loosly coupled code.
+2) Interface supports multiple inheritance but abstract class does not
+Interface can not have instanced constructor but abstract class can have
+Interface has by default all members abstract and public, but abstract class can have abstract and concrete members
+Interface can not have fields but abstract class can have fields.
+
+11. What accessibility level are members of an interface?
+ Public
+
+12. True/False. Polymorphism allows derived classes to provide different implementations
+of the same method. --- True
+13. True/False. The override keyword is used to indicate that a method in a derived class is
+providing its own implementation of a method. ---True
+14. True/False. The new keyword is used to indicate that a method in a derived class is
+providing its own implementation of a method. ---False
+15. True/False. Abstract methods can be used in a normal (non-abstract) class. 
+16.True/False. Normal (non-abstract) methods can be used in an abstract class. ---False
+17. True/False. Derived classes can override methods that were virtual in the base class. ---True
+ 18. True/False. Derived classes can override methods that were abstract in the base class. ---True
+19. True/False. In a derived class, you can override a method that was neither virtual non abstract in the
+base class. ---False
+20. True/False. A class that implements an interface does not have to provide an
+implementation for all of the members of the interface. ---False
+21. True/False. A class that implements an interface is allowed to have other members that
+aren’t defined in the interface. ---True
+22. True/False. A class can have more than one base class. ---False
+23. True/False. A class can implement more than one interface. ----True
